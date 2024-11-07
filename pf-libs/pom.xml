@@ -11,8 +11,8 @@
   <description>Domain modules/libraries parent pom</description>
 
   <parent>
-    <artifactId>pratofeito-backend</artifactId>
-    <groupId>br.com.pratofeito</groupId>
+    <artifactId>events-backend</artifactId>
+    <groupId>br.com.replicfoodevents</groupId>
     <version>1.0.0-SNAPSHOT</version>
   </parent>
 
