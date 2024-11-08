@@ -41,6 +41,8 @@ internal class Customer {
     fun han(command: CreateCustomerOrderCommand){
         if( !command.orderTotal.isGreaterThanOrEqual(orderList)){
             AggregateLifecycle.createNew(CustomerOrder::class.java) { CustomerOrder(command) }
+        }else {
+            throw UnsupportedOperationException("Customer limit is reached")
         }
     }
 

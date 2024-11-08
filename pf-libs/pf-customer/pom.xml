@@ -48,12 +48,11 @@
         </dependency>
 
         <!-- ArchUnit -->
-<!--        <dependency>-->
-<!--            <groupId>com.tngtech.archunit</groupId>-->
-<!--            <artifactId>archunit-junit</artifactId>-->
-<!--            <version>0.23.1</version>-->
-<!--            <scope>test</scope>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>com.tngtech.archunit</groupId>
+            <artifactId>archunit-junit4</artifactId>
+            <scope>teste</scope>
+        </dependency>
 
 
 

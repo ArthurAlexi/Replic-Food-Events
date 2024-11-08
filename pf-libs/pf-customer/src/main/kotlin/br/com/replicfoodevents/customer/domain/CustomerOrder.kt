@@ -44,14 +44,20 @@ internal class CustomerOrder {
         this.state = CustomerOrderState.CREATED
     }
     @CommandHandler
-    fun han(command: MarkCustomerOrderAsDeliveredCommand){
-        if(CustomerOrderState.CREATED == this.state) {
-            AggregateLifecycle.apply(CustomerOrderDeliveredEvent(
-                command.targetAggregateIdentifier,
-                command.auditEntry
-            ))
+    fun han(command: MarkCustomerOrderAsDeliveredCommand) {
+        when (state) {
+            CustomerOrderState.CREATED -> {
+                AggregateLifecycle.apply(
+                    CustomerOrderDeliveredEvent(
+                        command.targetAggregateIdentifier,
+                        command.auditEntry
+                    )
+                )
+            }
+            else -> throw IllegalStateException("The current state is not CREATED.")
         }
     }
+
     @EventSourcingHandler
     fun on(event: CustomerOrderDeliveredEvent){
         this.state = CustomerOrderState.DELIVERED

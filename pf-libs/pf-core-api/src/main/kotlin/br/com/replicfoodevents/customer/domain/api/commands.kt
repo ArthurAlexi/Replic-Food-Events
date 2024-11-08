@@ -20,7 +20,13 @@ data class CreateCustomerCommand(
     val orderLimit: Money,
     @TargetAggregateIdentifier override val targetAggregateIdentifier: CustomerId,
     override val auditEntry: AuditEntry
-): CustomerCommand(targetAggregateIdentifier, auditEntry)
+): CustomerCommand(targetAggregateIdentifier, auditEntry) {
+    constructor(person: PersonName, orderLimit: Money, auditEntry: AuditEntry) : this(
+        orderLimit = orderLimit,
+        auditEntry = auditEntry,
+        targetAggregateIdentifier =CustomerId(),
+        person = person)
+}
 data class CreateCustomerOrderCommand(
     val customerOrderId: CustomerOrderId,
     @field:Valid val orderTotal: Money,
