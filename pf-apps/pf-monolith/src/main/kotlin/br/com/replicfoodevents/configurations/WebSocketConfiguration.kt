@@ -14,6 +14,6 @@ class WebSocketConfiguration :WebSocketMessageBrokerConfigurer {
     }
 
     override fun registerStompEndpoints(registry: StompEndpointRegistry) {
-        registry.addEndpoint("replicFoodEvents").setAllowedOrigins("*").withSockJS()
+        registry.addEndpoint("/replicFoodEvents").setAllowedOriginPatterns("*").withSockJS()
     }
 }
